@@ -24,5 +24,13 @@ public class Banane extends Obst {
 		super("Banane");
 		// TODO Auto-generated constructor stub
 	}
+	
+	@Override
+	public String toString() {
+		String text;
+		text = super.toString();
+		text = text + "\nKruemmung = " + kruemmung + "\n";
+		return text;
+	}
 
 }

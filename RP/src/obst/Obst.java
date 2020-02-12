@@ -1,6 +1,6 @@
 package obst;
 
-public class Obst {
+public abstract class Obst {
 
 	private String name;
 	private double gewicht;
@@ -62,5 +62,13 @@ public class Obst {
 	 */
 	public void setReife(boolean reife) {
 		this.reife = reife;
+	}
+	
+	@Override
+	public String toString() {
+		String text;
+		text = "Name = " + getName();
+		text = text + "\nVitamingehalt = " + getVitamingehalt();
+		return text;
 	}
 }

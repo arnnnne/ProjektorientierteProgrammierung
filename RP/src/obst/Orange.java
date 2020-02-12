@@ -13,16 +13,21 @@ public class Orange extends Obst {
 	}
 	
 	/**
-	 * Ändert die Kern-Eigenschaft
-	 * @param kerne "true", wenn sie Kerne hat
-	 * 				"false", wenn sie keine Kerne hat
+	 * Wird nur aufgerufen wenn ein neues Objekt erstellt wird
+	 * @param kerne "true", wenn die Orange Kerne hat
+	 * 				"false", wenn die Orange keine Kerne hat
 	 */
-	public void setKerne(boolean kerne) {
+	public Orange(boolean kerne) {
+		super("Orange");
 		this.kerne = kerne;
 	}
 	
-	public Orange() {
-		super("Orange");
+	@Override
+	public String toString() {
+		String text;
+		text = super.toString();
+		text = text + "\nKerne = " + kerne + "\n";
+		return text;
 	}
 
 }
