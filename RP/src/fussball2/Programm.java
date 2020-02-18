@@ -1,4 +1,4 @@
-package fussball1;
+package fussball2;
 
 public class Programm {
 
@@ -17,7 +17,7 @@ public class Programm {
 		System.out.println("\n" + trainer1.toString());
 		
 		
-		Spieler spieler1 = new Spieler("Manuel Neuer", 33);
+		Spieler spieler1 = new Spieler("Manuel Neuer", 33, 4,99 ,5, 55);
 		System.out.println("\n" + spieler1.getName());
 		System.out.println(spieler1.getAlter());
 		spieler1.setMotivation(100);
@@ -31,7 +31,8 @@ public class Programm {
 		
 		System.out.println("\n" + spieler1.toString() + "\n");
 		
-		
+		Torwart torwart1 = new Torwart("Peter", 22, 100, 1, 19);
+		System.out.println("\n" + torwart1.toString());
 		
 
 	}
