@@ -39,9 +39,9 @@ public class Trainer {
 	@Override
 	public String toString() {
 		String text;
-		text = "Name = " + name;
+		text = "\nName = " + name;
 		text = text + "\nAlter = " + alter;
-		text = text + "\nErfahrung = " + erfahrung + "\n";
+		text = text + "\nErfahrung = " + erfahrung;
 		return text;
 	}
 }

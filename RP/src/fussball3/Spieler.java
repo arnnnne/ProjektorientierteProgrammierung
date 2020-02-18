@@ -1,38 +1,19 @@
-package fussball2;
+package fussball3;
 
-public class Spieler {
+public class Spieler extends Person {
 	
-	private String name;
-	private int alter;
 	private int staerke;
 	private int motivation;
 	private int torschuss;
 	private int tore;
 	
 	public Spieler(String name, int alter, int staerke, int motivation, int torschuss, int tore) {
-		this.name = name;
-		this.alter = alter;
+		super(name, alter);
 		this.staerke = staerke;
 		this.motivation = motivation;
 		this.tore = tore;
 		this.torschuss = torschuss;
 		
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public int getAlter() {
-		return alter;
-	}
-	
-	public void setAlter(int alter) {
-		this.alter = alter;
 	}
 	
 	public int getStaerke() {
@@ -70,8 +51,8 @@ public class Spieler {
 	@Override
 	public String toString() {
 		String text;
-		text = "\nName = " + name;
-		text = text + "\nAlter = " + alter;
+		text = "\nName = " + getName();
+		text = text + "\nAlter = " + getAlter();
 		text = text + "\nStärke = " + staerke;
 		text = text + "\nMotivation = " + motivation;
 		text = text + "\nTorschuss = " + torschuss;

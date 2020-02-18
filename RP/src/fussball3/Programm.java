@@ -1,4 +1,4 @@
-package fussball2;
+package fussball3;
 
 public class Programm {
 
