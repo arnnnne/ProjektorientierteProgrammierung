@@ -1,4 +1,4 @@
-package fussball3;
+package fussball5;
 
 public class Spieler extends Person {
 	
@@ -56,7 +56,7 @@ public class Spieler extends Person {
 		text = text + "\nStärke = " + staerke;
 		text = text + "\nMotivation = " + motivation;
 		text = text + "\nTorschuss = " + torschuss;
-		text = text + "\nTore = " + tore + "\n";
+		text = text + "\nTore = " + tore;
 		return text;
 	}
 	
