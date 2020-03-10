@@ -23,7 +23,6 @@ public class Tresor {
 	}
 	
 	public Gegenstand getGegestand(int id) throws GegenstandNichtGefunden {
-		boolean gegenstandexistiert = false;
 		Gegenstand gegenstand1 = null;
 		for (Gegenstand gegenstand2 : gegenstandListe) {
 			
