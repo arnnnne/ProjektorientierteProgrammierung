@@ -23,12 +23,6 @@ public class TestTresor {
 		} catch (GegenstandNichtGefunden e) {
 			System.out.println(e.getMessage());
 		}
-		
-		try {
-			System.out.println(tresor.getGegestand(0));
-		} catch (GegenstandNichtGefunden e) {
-			System.out.println(e.getMessage());
-		}
 
 	}
 

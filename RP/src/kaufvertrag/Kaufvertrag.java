@@ -34,6 +34,14 @@ public class Kaufvertrag {
 		this.ware = ware;
 	}
 	
+	public void setZahlungsModalitaeten(String zahlungsModalitaeten) {
+		this.zahlungsModalitaeten = zahlungsModalitaeten;
+	}
+	
+	public String setZahlungsModalitaeten() {
+		return zahlungsModalitaeten;
+	}
+	
 	
 
 }
