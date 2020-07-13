@@ -1,4 +1,4 @@
-package nogard3;
+package nogard4;
 
 import java.util.Scanner;
 
@@ -61,13 +61,29 @@ public class Spiel {
 		Bereich rathaus = new Bereich("im Rathaus von Nogard");
 		Bereich taverne = new Bereich("in der Taverne, mit zwielichtigen Gestalten an der Theke");
 		Bereich wald = new Bereich("im dunklen Stadtwald von Nogard");
+		Bereich hoehle = new Bereich("in einer dunklen und feuchten Höhle");
+		Bereich kraeuterkeller = new Bereich("im Kräuterkeller der Dorfhexe");
+		Bereich weinkeller = new Bereich("im Weinkeller der Taverne");
 
 		// Die Nachbarschaften festlegen.
-		friedhof.setNachbarn(null, null, hexenhaus, null);
-		hexenhaus.setNachbarn(friedhof, rathaus, wald, null);
-		rathaus.setNachbarn(null, null, taverne, hexenhaus);
-		taverne.setNachbarn(rathaus, null, null, wald);
-		wald.setNachbarn(hexenhaus, taverne, null, null);
+		friedhof.setNachbarn(Richtungen.SOUTH, hexenhaus);
+		hexenhaus.setNachbarn(Richtungen.NORTH, friedhof);
+		hexenhaus.setNachbarn(Richtungen.EAST, rathaus);
+		hexenhaus.setNachbarn(Richtungen.SOUTH, wald);
+		hexenhaus.setNachbarn(Richtungen.DOWN, kraeuterkeller);
+		rathaus.setNachbarn(Richtungen.SOUTH, taverne);
+		rathaus.setNachbarn(Richtungen.WEST, hexenhaus);
+		taverne.setNachbarn(Richtungen.NORTH, rathaus);
+		taverne.setNachbarn(Richtungen.WEST, wald);
+		taverne.setNachbarn(Richtungen.DOWN, weinkeller);
+		wald.setNachbarn(Richtungen.NORTH, hexenhaus);
+		wald.setNachbarn(Richtungen.EAST, taverne);
+		hoehle.setNachbarn(Richtungen.NORTH, kraeuterkeller);
+		hoehle.setNachbarn(Richtungen.EAST, weinkeller);
+		kraeuterkeller.setNachbarn(Richtungen.SOUTH, hoehle);
+		kraeuterkeller.setNachbarn(Richtungen.UP, hexenhaus);
+		weinkeller.setNachbarn(Richtungen.WEST, hoehle);
+		weinkeller.setNachbarn(Richtungen.UP, taverne);
 
 		// Das Spielt startet im Wald.
 		aktiverBereich = wald;
@@ -90,24 +106,17 @@ public class Spiel {
 	}
 	private void wechselBereich(Befehl befehl) {
 		// Neuen Bereich ermitteln.
-		Bereich neuerBereich;
-		switch (befehl.getBefehlsZusatz()) {
-		case "north":
-			neuerBereich = aktiverBereich.getNachbar(Richtungen.NORTH);
-			break;
-		case "east":
-			neuerBereich = aktiverBereich.getNachbar(Richtungen.EAST);
-			break;
-		case "south":
-			neuerBereich = aktiverBereich.getNachbar(Richtungen.SOUTH);
-			break;
-		case "west":
-			neuerBereich = aktiverBereich.getNachbar(Richtungen.WEST);
-			break;
-		default:
-			neuerBereich = null;
-			break;
+		Richtungen richtung = Richtungen.valueOf(befehl.getBefehlsZusatz().toUpperCase());
+		Bereich neuerBereich = aktiverBereich.getNachbar(richtung);
+		// Auswertung der gefundenen Bereichs.
+		if (neuerBereich == null) {
+			System.out.println("Dort geht es nicht weiter.");
 		}
+		else {
+			aktiverBereich = neuerBereich;
+			System.out.println(aktiverBereich.getInfo());
+		}
+
 		// Auswertung der gefundenen Bereichs.
 		if (neuerBereich == null) {
 			System.out.println("Dort geht es nicht weiter.");
@@ -147,7 +156,7 @@ public class Spiel {
 		System.out.println("Danke für dieses Spiel. Auf Wiedersehen.");
 	}
 
-	
+
 
 	/**
 	 * Gibt einen Fehlertext auf der Konsole aus, wenn der Befehl nicht verstanden wird.

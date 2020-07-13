@@ -1,4 +1,4 @@
-package nogard3;
+package nogard4;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,10 +22,9 @@ public class Bereich {
     public Bereich(String beschreibung) {
         this.beschreibung = beschreibung;
         nachbarn = new HashMap<>();
-        nachbarn.put(Richtungen.NORTH, null);
-        nachbarn.put(Richtungen.EAST, null);
-        nachbarn.put(Richtungen.SOUTH, null);
-        nachbarn.put(Richtungen.WEST, null);
+        for (Richtungen richtung : Richtungen.values()) {
+        	nachbarn.put(richtung, null);			
+		}
     }
 
     /**
@@ -44,11 +43,8 @@ public class Bereich {
      * @param sued	Der im Süden benachbarte Bereich.
      * @param west	Der im Westen benachbarte Bereich.
      */
-    public void setNachbarn(Bereich nord, Bereich ost, Bereich sued, Bereich west) {
-    	nachbarn.put(Richtungen.NORTH, nord);
-    	nachbarn.put(Richtungen.EAST, ost);
-    	nachbarn.put(Richtungen.SOUTH, sued);
-    	nachbarn.put(Richtungen.WEST, west);
+    public void setNachbarn(Richtungen richtung, Bereich nachbar) {
+    	nachbarn.put(richtung, nachbar);
     }
     
     public Bereich getNachbar(Richtungen richtung) {
