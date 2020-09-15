@@ -7,7 +7,7 @@ public class Spieler extends Person {
 	private int torschuss;
 	private int tore;
 	
-	public Spieler(int id, String name, int alter, int staerke, int motivation, int torschuss, int tore) {
+	public Spieler(int id, String name, int alter, int staerke, int motivation, int torschuss, int tore, int mannschaftID) {
 		super(id, name, alter);
 		this.staerke = staerke;
 		this.motivation = motivation;

@@ -7,9 +7,10 @@ public class Mannschaft {
 	private String name;
 	private Trainer trainer1;
 	private Torwart torwart1;
+	private int id;
 	private ArrayList<Spieler> spielerListe;
 
-	public Mannschaft(String name, Trainer trainer1, Torwart torwart1, ArrayList<Spieler> spielerListe) {
+	public Mannschaft(int id, String name, Trainer trainer1, Torwart torwart1, ArrayList<Spieler> spielerListe) {
 		this.setName(name);
 		this.setTrainer1(trainer1);
 		this.setTorwart1(torwart1);
@@ -91,5 +92,13 @@ public class Mannschaft {
 		text = text + "\n\nStaerke gesamt = " + getStaerke();
 		text = text + "\nMotivation gesamt = " + getMotivation() + "\n\n";
 		return text;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

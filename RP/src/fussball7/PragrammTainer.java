@@ -1,11 +1,9 @@
 package fussball7;
 
-import java.util.ArrayList;
+public class PragrammTainer {
 
-public class Programm {
+	public static void main(String[] args) throws ClassNotFoundException, DaoException {
 
-	@SuppressWarnings("static-access")
-	public static void main(String[] args) {
 		
 		try {
 			Torwart torwart = new TorwartDao().read(1);
@@ -34,18 +32,6 @@ public class Programm {
 		} catch (DaoException e) {
 			System.out.println(e.getMessage());
 		}
-		
-		Spiel spiel1 = new Spiel(mannschaftH, mannschaftG);
-		System.out.println(spiel1.toString());
-		
-		Gameplay game = new Gameplay();
-		try {
-			game.spielen(spiel1, mannschaftH, mannschaftG, tRainer, tRainer, torwarT, tOrwart);
-		} catch (SpielabbruchException e) {
-			System.out.println(spiel1.getSpielbericht());
-			System.out.println(e.getMessage());
-		}
-		
 	}
 
 }
